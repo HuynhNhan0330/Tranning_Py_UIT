@@ -8,16 +8,16 @@ def next_img (folder : str):
     n = len(list_img)
     while index < n:
         file_img = list_img[index]
-        if file_img.endswith('.jpg'):
-            img = cv2.imread(f'{folder}/{file_img}')
-            img_resize = cv2.resize(img, (0, 0), fx=0.5, fy=0.5)
-            cv2.imshow("Anh", img_resize)
-            k = cv2.waitKey()
-            if k == ord('q'):
-                break
-            if k == 82 and index > 0:
-                index -= 1
-            if k == 84 and index < n-1:
-                index += 1
+
+        img = cv2.imread(f'{folder}/{file_img}')
+        img_resize = cv2.resize(img, (0, 0), fx=0.5, fy=0.5)
+        cv2.imshow("Anh", img_resize)
+        k = cv2.waitKey()
+        if k == ord('q'):
+            break
+        if k == 82 and index > 0:
+            index -= 1
+        if k == 84 and index < n-1:
+            index += 1
     cv2.destroyAllWindows()
 
